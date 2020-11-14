@@ -14,16 +14,16 @@
     <nav class="navbar navbar-light" style="background-color: lavender;">
         <h1 class="navbar-brand" href="#">Weather Dash</h1>
     </nav>
-    <br/>
+    <br />
     <div class="container-fluid">
         <div class="row">
             <div class="col-4">
                 <h7>enter your city below:</h7>
                 <div class="input-group">
                     <input id="citySearch" type="text" class="form-control" placeholder=""
-                        aria-label="Example text with button addon" aria-describedby="button-addon1">
+                        aria-label="Example text with button addon" aria-describedby="button-addon1" value=""> 
                     <div class="input-group-prepend">
-                        <button class="btn btn-outline-secondary" type="button" id="button-addon1">
+                        <button onclick="searchCity()" class="btn btn-outline-secondary" type="button" id="button-addon1">
                             <span>Search</span>
                         </button>
                     </div>
@@ -36,18 +36,21 @@
                         <h5>City and Date</h5>
                     </div>
                     <div class="card-body">
-                        <p class="card-text">Temperature:</p>
-                        <p class="card-text">Humidity:</p>
+                        <p class="card-text">Temperature:<span id="tempEl"> </span></p>
+                        <p class="card-text">Humidity:<span id="humidityEl"> </span></p>
                         <p class="card-text">Wind Speed:</p>
                         <p class="card-text">UV Index:</p>
                     </div>
                 </div>
             </div>
         </div>
-        <br/>
+        <br />
         <div class="row">
             <div class="col-4">
-                <div class="card-deck">
+                <div>
+                    <div class="card">
+                        previously searched city
+                    </div>
                     <div class="card">
                         previously searched city
                     </div>
@@ -56,34 +59,34 @@
             <div class="col-8">
                 <div class="card-deck">
                     <div class="card">
+                        <div class="card-body" style="background-color: #f0fff0;">
+                            <h5 class="card-title">date</h5>
+                            <p class="card-text">temp:</p>
+                            <p class="card-text">humidity:</p>
+                        </div>
+                    </div>
+                    <div class="card" style="background-color: #f0fff0;;">
                         <div class="card-body">
                             <h5 class="card-title">date</h5>
                             <p class="card-text">temp:</p>
                             <p class="card-text">humidity:</p>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card" style="background-color: #f0fff0;">
                         <div class="card-body">
                             <h5 class="card-title">date</h5>
                             <p class="card-text">temp:</p>
                             <p class="card-text">humidity:</p>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card" style="background-color: #f0fff0;">
                         <div class="card-body">
                             <h5 class="card-title">date</h5>
                             <p class="card-text">temp:</p>
                             <p class="card-text">humidity:</p>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">date</h5>
-                            <p class="card-text">temp:</p>
-                            <p class="card-text">humidity:</p>
-                        </div>
-                    </div>
-                    <div class="card">
+                    <div class="card" style="background-color: #f0fff0;">
                         <div class="card-body">
                             <h5 class="card-title">date</h5>
                             <p class="card-text">temp:</p>
@@ -92,8 +95,8 @@
                     </div>
                 </div>
             </div>
-
         </div>
+<script src="script.js"></script>
 </body>
 
 </html>

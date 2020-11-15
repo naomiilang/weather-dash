@@ -33,13 +33,13 @@
                 <div class="card">
                     <!--REPORT CARD STYLES-->
                     <div class="card-title" style="text-align: center;">
-                        <h5>City and Date</h5>
+                        <h5 id="todaysCity"></h5>
                     </div>
                     <div class="card-body">
                         <p class="card-text">Temperature:<span id="tempEl"> </span></p>
                         <p class="card-text">Humidity:<span id="humidityEl"> </span></p>
-                        <p class="card-text">Wind Speed:</p>
-                        <p class="card-text">UV Index:</p>
+                        <p class="card-text">Wind Speed:<span id="windEl"> </span></p>
+                        <p class="card-text">UV Index:<span id="uvEl"> </span></p>
                     </div>
                 </div>
             </div>
@@ -60,9 +60,9 @@
                 <div class="card-deck">
                     <div class="card">
                         <div class="card-body" style="background-color: #f0fff0;">
-                            <h5 class="card-title">date</h5>
-                            <p class="card-text">temp:</p>
-                            <p class="card-text">humidity:</p>
+                            <p class="card-title"><span id="card1date"></span></p>
+                            <p class="card-text">temp:<span id="cardTemp"></span></p>
+                            <p class="card-text">humidity:<span id="card1humidity"></span></p>
                         </div>
                     </div>
                     <div class="card" style="background-color: #f0fff0;;">
@@ -97,6 +97,7 @@
             </div>
         </div>
 <script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 </body>
 
 </html>

@@ -2,7 +2,7 @@ var todaysCity = document.querySelector("#todaysCity");
 var tempEl = document.querySelector("#tempEl");
 var humidtyEl = document.querySelector("#humidityEl");
 var windEl = document.querySelector("#windEl");
-var uvEl = document.querySelector("uvEl");
+var uvEl = document.querySelector("#UVI");
 var cardDate = document.querySelector("#card1date");
 var cardTemp = document.querySelector("cardTemp");
 var cardHumidity = document.querySelector("#card1Humidity");
@@ -32,21 +32,60 @@ var searchCity = function () {
             todaysCity.append(city);
             var wind = Wresponse.wind.speed;
             windEl.append(wind + " mph");
+            var lat = Wresponse.coord.lat;
+            var lon = Wresponse.coord.lon;
+
+            return fetch(
+                'http://api.openweathermap.org/data/2.5/uvi?lat=' +
+                lat +
+                '&lon=' +
+                lon +
+                '&appid=' +
+                apiKey
+            )
+        })
+        .then(function(response){ 
+            return response.json();
+        })
+        .then(function(response){
+            console.log(response);
+            var lat = response.lat;
+            var lon = response.lon;
+            var UV = response.value;
+            uvEl.append(UV);
+            console.log(lat,lon);
+            return fetch(
+                'https://api.openweathermap.org/data/2.5/onecall?lat=' +
+                lat +
+                '&lon='+
+                lon +
+                '&exclude=current,minutely,hourly,alerts' +
+                '&units=imperial' +
+                '&appid=' +
+                apiKey
+            )
+        })
+        .then(function(response){
+            return response.json();
+        })
+        .then(function(response){
+            console.log(response);
         })
 
-    fetch (
-       'https://api.openweathermap.org/data/2.5/forecast?q=' +
-       searchInput +
-       '&units=imperial' +
-       '&appid=' +
-       apiKey
-    )   
-        .then(function(Fresponse){
-            return Fresponse.json();
-        })
-        .then(function(Fresponse){
-            console.log(Fresponse);
-            var carddate = Fresponse.list[0].dt_txt;
-            cardDate.append(carddate);
-        })
+    // fetch(
+    //     'https://api.openweathermap.org/data/2.5/forecast?q=' +
+    //     searchInput +
+    //     '&units=imperial' +
+    //     '&cnt=5' +
+    //     '&appid=' +
+    //     apiKey
+    // )
+    //     .then(function (Fresponse) {
+    //         return Fresponse.json();
+    //     })
+    //     .then(function (Fresponse) {
+    //         console.log(Fresponse);
+    //         var carddate = Fresponse.list[0].dt_txt;
+    //         cardDate.append(carddate);
+    //     })
 };
